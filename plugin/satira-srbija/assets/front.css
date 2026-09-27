@@ -1,0 +1,17 @@
+.satira-badge {
+  margin: 0 0 1rem;
+}
+.satira-badge a {
+  display: inline-block;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid currentColor;
+  padding: 0.25rem 0.6rem;
+}
+.satira-inspiration {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+}
