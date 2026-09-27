@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ArhitektaHaosa/satira-srbija/schemas/article.schema.json",
+  "title": "SatiraSrbijaArticle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["title", "slug", "excerpt", "content_html", "category", "tags", "featured_image_prompt", "alt_text", "seo_title", "meta_description", "social_title", "social_description", "satire_label", "layers"],
+  "properties": {
+    "title": {"type": "string", "minLength": 12, "maxLength": 110},
+    "slug": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$", "minLength": 8, "maxLength": 80},
+    "excerpt": {"type": "string", "minLength": 40, "maxLength": 280},
+    "content_html": {"type": "string", "minLength": 400},
+    "category": {"type": "string", "enum": ["Politika", "Tehnologija", "AI", "Internet", "Društvo", "Biznis", "Kultura", "Sport", "Svet", "Srbija", "Apsurd dana"]},
+    "tags": {"type": "array", "minItems": 2, "maxItems": 8, "items": {"type": "string", "minLength": 2, "maxLength": 40}},
+    "featured_image_prompt": {"type": "string", "minLength": 20, "maxLength": 600},
+    "alt_text": {"type": "string", "minLength": 8, "maxLength": 140},
+    "seo_title": {"type": "string", "minLength": 12, "maxLength": 70},
+    "meta_description": {"type": "string", "minLength": 50, "maxLength": 160},
+    "social_title": {"type": "string", "minLength": 12, "maxLength": 90},
+    "social_description": {"type": "string", "minLength": 40, "maxLength": 180},
+    "satire_label": {"type": "string", "const": "Satira / Parodija"},
+    "inspiration_url": {"type": ["string", "null"], "maxLength": 300},
+    "inspiration_note": {"type": ["string", "null"], "maxLength": 280},
+    "layers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fact", "satire", "fictional_quote", "editorial_comment"],
+      "properties": {
+        "fact": {"type": "string"},
+        "satire": {"type": "string", "minLength": 10},
+        "fictional_quote": {"type": "string"},
+        "editorial_comment": {"type": "string"}
+      }
+    }
+  }
+}
